@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.pinhong.ssm.mapper.RevertMapperCustom">
+	
+	<select id="findRevertsByPage" parameterType="cn.pinhong.ssm.vo.RevertPageVo" resultType="cn.pinhong.ssm.po.Revert">
+		SELECT * FROM revert WHERE mid=#{mid} ORDER BY rdate LIMIT #{pageVo.firstResult},#{pageVo.maxResults}
+	</select>
+	
+	<select id="count" parameterType="cn.pinhong.ssm.vo.RevertPageVo" resultType="int">
+		SELECT COUNT(*) FROM revert WHERE mid=#{mid}
+	</select>
+	
+</mapper>

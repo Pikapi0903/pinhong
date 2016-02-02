@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.pinhong.ssm.mapper.NewsMapperCustom">
+	
+	<select id="findNewsByPage" parameterType="cn.pinhong.ssm.vo.PageVo" resultType="cn.pinhong.ssm.po.News">
+		SELECT * FROM news ORDER BY ndate DESC LIMIT #{firstResult},#{maxResults}
+	</select>
+	
+	<select id="count" resultType="int">
+		SELECT COUNT(*) FROM news
+	</select>
+	
+	<select id="findLatestNews" resultType="cn.pinhong.ssm.po.News">
+		SELECT * FROM news ORDER BY ndate DESC LIMIT 0,7
+	</select>
+	
+</mapper>
